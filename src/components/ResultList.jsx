@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { InputContext } from '../App';
+import Antonym from './Antonym';
 import Example from './Example';
 import MeaningList from './MeaningList';
 import Synonym from './Synonym';
@@ -51,6 +52,7 @@ const ResultList = () => {
           <h3 className='text-2xl font-bold mt-4'>Synonym:</h3>
           <Synonym mean={response} />
           <h3 className='text-2xl font-bold mt-4'>Antonym:</h3>
+          <Antonym mean={response} />
       </div>
       )}
     </div>
