@@ -1,6 +1,26 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import { InputContext } from '../App';
 
 const Header = () => {
+  const { inputValue, setInputValue } = useContext(InputContext);
+  const [value, setValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setValue(event.target.value);
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setInputValue(value);
+    setValue("");
+  }
+
+  const handleInputKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSubmit(event);
+    }
+  }
+
   return (
     <div className='bg-gray-700'>
       <div className='container mx-auto py-8'>
@@ -9,12 +29,15 @@ const Header = () => {
 
         <div className="flex items-center justify-center mt-5">
           <div className='flex border-2 border-gray-200 rounded'>
-            <input className='px-4 py-2 max-w-md' type='text' placeholder='Search . . .' />
-            <button className='bg-blue-400 border-l px-4 py-2 text-white'>Search</button>
+            <input className='px-4 py-2 max-w-md' type='text' placeholder='Search . . .' value={value} onChange={handleInputChange} onKeyDown={handleInputKeyDown}/>
+            <button className='bg-blue-400 border-l px-4 py-2 text-white' onClick={handleSubmit}>Search</button>
           </div>
         </div>
 
-        <h3 className='text-gray-50 text-center mt-4'>Result for : <span className='text-white font-bold'>Freelance</span></h3>
+        { inputValue && (
+          <h3 className='text-gray-50 text-center mt-4'>Result for : <span className='text-white font-bold'>{inputValue}</span></h3>
+        )}
+
       </div>
     </div>
   )

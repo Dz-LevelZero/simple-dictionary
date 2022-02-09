@@ -1,10 +1,23 @@
+import { createContext, useState } from "react";
 import Header from "./components/Header";
 
-function App() {
+// Create Context
+export const InputContext = createContext();
+
+const App = () => {
+  const [inputValue, setInputValue] = useState("");
+  console.log(inputValue);
+
+  const value = {
+    inputValue, setInputValue
+  }
+
   return (
-    <div className="App">
-      <Header />
-    </div>
+    <InputContext.Provider  value={value}>
+      <div className="App">
+        <Header />
+      </div>
+    </InputContext.Provider>
   );
 }
 
