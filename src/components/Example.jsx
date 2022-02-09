@@ -1,16 +1,15 @@
 import React from 'react'
 
-const MeaningList = ({ mean }) => {
+const Example = ({ mean }) => {
   return (
     <div>
       {mean.map(val => val.meanings.map(means => means.definitions.map(def => (
-        <div key={def.definition}>
-          <li>{def.definition}</li>
-          <hr />
+        <div key={def.example}>
+          {def.example && <li>{def.example}</li>}
         </div>
       ))))}
     </div>
   )
 }
 
-export default MeaningList
+export default Example
