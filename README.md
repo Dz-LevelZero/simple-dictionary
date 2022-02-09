@@ -1,5 +1,5 @@
 # Simple Dictionary
-![Simple-Dictionary](https://i.imgur.com/Yyqg1OI.png)
+![Simple-Dictionary](https://i.imgur.com/GJD5rUe.png)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
